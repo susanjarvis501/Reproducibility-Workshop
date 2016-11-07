@@ -308,14 +308,49 @@ Show RStudio where Git is installed:
 - Under Git executable navigate to where you downloaded Git.exe (should be C:/Program Files/Git/bin/git.exe unless you changed this)
 - Ok
 
-#### 4.3. Add version control to RProject
+#### 4.3. Configure Git
+
+Setting up a user name and email address to be associated with Git is helpful if you want to collaborate with others.
+
+- Tools > Shell...
+- Type the two lines below, adding in your information
+```{}
+git config --global user.name 'Your Name'
+git config --global user.email 'your@email.com'
+```
+
+Check setup with `git config --global --list` then close the Shell.
+
+#### 4.4. Add version control to RProject
 
 - Tools > Project Options...
 - Git/SVN > Change version control system from (None) to Git
 - Confirm you want to initialise a new repository
 - Restart RStudio
 
+You should now see a new window in the 'Environment' pane called 'Git'. This will show you a list of all the files in your new Git repository with question marks next to them. 
 
+At the moment Git isn't tracking changes to any files. To do this we need to 'stage' the files we want to track.
+
+It is possible to do this in the Git window *however* I would not recommend this as it can be very slow. Instead, we can use the Shell again.
+
+To stage all the files in the repository type
+
+```{}
+git add --all
+```
+
+This will start tracking all the files in the repository. If there are files you don't want to track (e.g. html produced by knitting .Rmd files) then these can be added to the .gitignore file in the repository using a text editor.
+
+We now need to commit the files to the repository, this creates a snapshot of all the changes that have occurred since the last commit. In this case this is our first commit so the changes will be additions to the repository.
+
+```{}
+git commit -m "Initial commit"
+```
+
+Whenever we commit a file we need to provide a message after `-m` to briefly describe the changes. This is handy if we want to go back and get a quick overview of the changes we made.
+
+We can now make some edits, for example you might want to add a new boxplot to your Markdown document to show how copper concentrations vary between lakes in the dataset. To 
 
 
 
