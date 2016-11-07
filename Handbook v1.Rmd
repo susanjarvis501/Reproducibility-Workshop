@@ -1,0 +1,95 @@
+---
+title: "Reproducibility workshop"
+author: "Susan Jarvis - CEH Lancaster"
+output: "html_document"
+---
+
+## Reproducibility in R workshop handbook
+*Version 1* 
+ 
+**Last modified** 
+`r format(Sys.Date(),"%d.%m.%Y")`
+
+
+The aim of this workshop is to introduce a number of reproducibility topics. Due to time constraints, it may not be possible to cover all of these today, therefore this handbook will be made available for future reference via Github  
+This workshop will guide you through conducting a basic analysis which is almost completely reproducible. There will be several elements to cover to accomplish this:  
+* Data will be imported from EIDC, the data archiving system of choice for CEH  
+* The analysis will all be conducted using R within an RProject, which will group all the files required for a particular analysis  
+* The RProject we create will be version controlled with git and could later be published on Github  
+* Reporting will be facilitated by creating an RMarkdown document which contains both the R code to conduct analyses and supporting text  
+
+
+### 1. Finding, downloading and importing data into a new RProject
+
+#### 1.1. Getting data from EIDC
+
+The Environmental Information Data Centre is the CEH data repository where all data created by CEH should end up. Data stored here gets a DOI, a licence and guaranteed long term storage. Data archiving is currently required by about 40% of journals and this is set to rise in the future. Here we will use a dataset from EIDC to demonstrate a reproducible analysis.
+
+Currently, it is not possible to import data from EIDC directly into R. This is possible with some of the other CEH data holdings e.g. datasets on THREDDS, but at the moment data has to be exported from EIDC, stored in a sensible location and imported into R.
+
+For this exercise we will use data on fish elemental concentrations [https://doi.org/10.5285/ed90df1b-462c-46bb-afbd-59794fb03f6b](https://doi.org/10.5285/ed90df1b-462c-46bb-afbd-59794fb03f6b). This data is available via an Open Government License.
+
+This dataset is also available in the Github repository for this workshop (ADD LINK)
+
+
+> **Note on data formatting:**  
+> Datasets used for analysis should fulfill the following requirements:  
+> * Each variable is a column  
+> * Each observation is a row  
+> * Each type of observational unit is a table  
+
+> Data which meets these requirements is know as 'tidy data'. There is a [paper](http://vita.had.co.nz/papers/tidy-data.pdf) describing the logic behind this way of presenting data and also R packages to help achieve this (e.g. [tidyr](https://cran.r-project.org/web/packages/tidyr/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)) with a useful [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) therefore the process of getting to a tidy dataset will not be covered in further detail here.
+
+
+ **Tasks**
+  
+ -> Download the dataset from either the EIDC(LINK) or Github repository(LINK)  
+ -> Put the file into a new folder called "Reproducibility workshop"
+ 
+ 
+#### 1.2. Starting a new RProject
+ 
+One very simple way to increase reproducibility of your analysis is to have a sensible file management structure. It is generally a good idea to keep all scripts and data to conduct an analysis in a single folder. If an analysis has multiple self-contained stages e.g. to create different plots for a paper, then each might be kept in an individual folder with all the scripts and data required. There is a tradeoff between a perfect file structure and unneccessary duplication of scripts or data, so you will need to find a file structure that works for you.
+ 
+ Once you have a folder that you will use to do some analysis you can convert it into an RProject with RStudio. RProjects have several advantages:  
+ * Each project has a separate workspace which opens automatically
+ * The working directory is automatically set to the project directory
+ * Loads scripts you were previously working on
+ * Integrated with git (or other) version control
+  
+**Tasks**  
+-> Create a new R Project in RStudio (File > New Project... > Existing directory)  
+-> Browse to the directory where you previously created a folder called "Reproducibility workshop"  
+
+You will now be working in a new R project - you can tell this by looking at the top right hand corner of RStudio where there should be an R in a box next to "Reproducibility workshop"
+
+
+#### 1.3. Importing data
+
+Because we are now working in an R project we can use local file paths (i.e. we don't need to write the full path 'C:/Documents...'). You can see the files available in the 'Files' window of RStudio which will show you the files stored under this project.
+
+We will read in our fish data using read.csv.
+
+```{r }
+```{r}
+fish <- read.csv("Elemental_concentrations_in_fish_from_lakes_in_Northwest_England.csv")
+```
+```
+
+
+This table has 83 variables of different types - these can be easily viewed by expanding the arrow next to the dataframe name under the 'Environment' window. Alternatively you can use the summary function:
+#+
+
+```{r }
+```{r}
+summary(fish)
+```
+```
+
+
+
+Note that several of the variables are factor levels indicating whether concentrations are below the value in the next field. We will ignore these for now and focus on an element without this addditional column; copper. 
+
+At this stage you might choose to create a new dataframe with only the variables of interest, and to shorten some of the long variable names. These steps should be clearly documented in your script and you should refrain from overwriting existing names as this can cause confusion.
+
+So, 
