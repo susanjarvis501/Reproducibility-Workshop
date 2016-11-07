@@ -165,8 +165,11 @@ Datasets used for analysis should fulfill the following requirements:</p>
 <p>Data which meets these requirements is know as ‘tidy data’. There is a <a href="http://vita.had.co.nz/papers/tidy-data.pdf">paper</a> describing the logic behind this way of presenting data and also R packages to help achieve this (e.g. <a href="https://cran.r-project.org/web/packages/tidyr/index.html">tidyr</a>, <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a>) with a useful <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">cheatsheet</a> therefore the process of getting to a tidy dataset will not be covered in further detail here.</p>
 </blockquote>
 <p><strong>Tasks</strong></p>
-<p>-&gt; Download the dataset from either the EIDC(LINK) or Github repository(LINK)<br />
--&gt; Put the file into a new folder called “Reproducibility workshop”</p>
+<ul>
+<li>Download the dataset from either the EIDC(LINK) or Github repository(LINK)<br />
+</li>
+<li>Put the file into a new folder called “Reproducibility workshop”</li>
+</ul>
 </div>
 <div id="starting-a-new-rproject" class="section level4">
 <h4>1.2. Starting a new RProject</h4>
@@ -182,8 +185,8 @@ Datasets used for analysis should fulfill the following requirements:</p>
 <li>Integrated with git (or other) version control</li>
 </ul>
 <p><strong>Tasks</strong><br />
--&gt; Create a new R Project in RStudio (File &gt; New Project… &gt; Existing directory)<br />
--&gt; Browse to the directory where you previously created a folder called “Reproducibility workshop”</p>
+- Create a new R Project in RStudio (File &gt; New Project… &gt; Existing directory)<br />
+- Browse to the directory where you previously created a folder called “Reproducibility workshop”</p>
 <p>You will now be working in a new R project - you can tell this by looking at the top right hand corner of RStudio where there should be an R in a box next to “Reproducibility workshop”</p>
 </div>
 <div id="importing-data" class="section level4">
@@ -315,9 +318,13 @@ anova(lm1)</code></pre>
 <p>The best solution to these issues is to use a literate programming platform such as RMarkdown. This allows you to incorporate both text with formatting (e.g. paragraphs, bullet points) and R code and outputs.</p>
 <p>RMarkdown documents can be easily created and edited within RStudio, a <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheatsheet</a> is available.</p>
 <p><strong>Tasks</strong></p>
-<p>-&gt; Open a new RMarkdown document via File &gt; New File &gt; R Markdown…<br />
--&gt; Give the Markdown document a sensible title and add your name as author<br />
--&gt; Leave other options as defaults (but note that Markdown is not limited to documents and can also be used to create presentations)</p>
+<ul>
+<li>Open a new RMarkdown document via File &gt; New File &gt; R Markdown…<br />
+</li>
+<li>Give the Markdown document a sensible title and add your name as author<br />
+</li>
+<li>Leave other options as defaults (but note that Markdown is not limited to documents and can also be used to create presentations)</li>
+</ul>
 <p>The new file that opens up has several key elements:</p>
 <ol style="list-style-type: decimal">
 <li>The first six lines are the YAML header. This determines the type of output and gives key information such as the author and date</li>
@@ -348,8 +355,35 @@ knitr::opts_chunk$set(echo = TRUE)
 <li>To put the text and R code together into a document click the ‘Knit’ button at the top of the document. This will run the R code and compile the output alongside all the text into a html document (you can also knit straight to Word or pdf)</li>
 </ol>
 <p><strong>Tasks</strong></p>
-<p>-&gt; Create a Markdown document to present a summary of the fish data analysis with explanatory text in pdf format</p>
+<ul>
+<li>Create a Markdown document to present a summary of the fish data analysis with explanatory text in pdf format, refer to the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheatsheet</a> for different ways to format text</li>
+</ul>
+</div>
+<div id="version-control" class="section level3">
+<h3>4. Version control</h3>
+<p>The final step element we are going to look at today is version control. We’ll use the <a href="https://git-scm.com/">Git</a> version control system for this example.</p>
+<div id="installing-git" class="section level4">
+<h4>4.1. Installing Git</h4>
+<ul>
+<li>Windows &amp; OS X: <a href="http://git-scm.com/downloads" class="uri">http://git-scm.com/downloads</a></li>
+<li>Debian/Ubuntu: sudo apt-get install git-core</li>
+<li>Fedora/RedHat: sudo yum install git-core</li>
+</ul>
+</div>
+<div id="activate-git-in-rstudio" class="section level4">
+<h4>4.2. Activate Git in RStudio</h4>
+<p>Show RStudio where Git is installed: - Tools &gt; Global Options &gt; Git/SVN - Under Git executable navigate to where you downloaded Git.exe (should be C:/Program Files/Git/bin/git.exe unless you changed this) - Ok</p>
+</div>
+<div id="add-version-control-to-rproject" class="section level4">
+<h4>4.3. Add version control to RProject</h4>
+<ul>
+<li>Tools &gt; Project Options…</li>
+<li>Git/SVN &gt; Change version control system from (None) to Git</li>
+<li>Confirm you want to initialise a new repository</li>
+<li>Restart RStudio</li>
+</ul>
 <p><em>Note on LaTeX - it is possible to integrate the functions provided by the knitr package with LaTeX using .Rnw files. LaTeX provides a much more complex and customised document creation language and is therefore useful when you are creating large documents (such as a thesis!), or have specific formatting needs. However the trade off is a much steeper learning curve than the Markdown language. Useful guides which assume some existing knowledge of LaTeX are available such as <a href="http://yihui.name/knitr/demo/minimal/">these minimal examples</a>, and this <a href="http://kbroman.org/knitr_knutshell/pages/latex.html">short guide</a>. If you want to learn LaTeX there are some useful online guides to get going e.g. <a href="http://www.docs.is.ed.ac.uk/skills/documents/3722/3722-2014.pdf">this one</a>.</em></p>
+</div>
 </div>
 </div>
 
