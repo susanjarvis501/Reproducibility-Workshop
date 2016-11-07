@@ -350,7 +350,15 @@ git commit -m "Initial commit"
 
 Whenever we commit a file we need to provide a message after `-m` to briefly describe the changes. This is handy if we want to go back and get a quick overview of the changes we made.
 
-We can now make some edits, for example you might want to add a new boxplot to your Markdown document to show how copper concentrations vary between lakes in the dataset. To 
+**Tasks**
+- We can now make some edits, for example you might want to add a new boxplot to your Markdown document to show how copper concentrations vary between lakes in the dataset. 
+- We then need to stage and commit the changes following the steps above.
+
+To view changes between versions use the 'Diff' function in the Git window - the 'History' panel should allow you to look at previous changes. Note that a new version is produced on every commit, therefore it is generally advisible to commit relatively frequently so you can easily revert to a previous version if need be. 
+
+
+
+
 
 
 
