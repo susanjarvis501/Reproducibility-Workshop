@@ -265,11 +265,10 @@ output: html_document
 
 2. Directly after the YAML header is the first code chunk of the document:
 
-````r
-`r ''````{r setup, include=FALSE}
+<pre class = "r"><code>```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
-````
+```</code></pre>
+
 
 a line of R code defining global options for processing R in this document. The line of code is preceeded by ` ```{r setup, include=FALSE}` and followed by three more backticks ` ``` `. The pattern of backticks tells the RMarkdown document that this is a code chunk, and the `{r...}` tells it we are working with R code. The additional arguments `{...setup, include=FALSE}` give additional arguments as to how the line of code should be processed - in this case telling us it should not be included in the final Markdown document. The line of R code `knitr::opts_chunk$set(echo = TRUE)` is used to set global options for this document - in this case the `echo = TRUE` argument means that the R code for following chunks will be displayed in the markdown document alongside the output.
 
