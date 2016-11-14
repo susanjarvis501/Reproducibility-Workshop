@@ -377,24 +377,34 @@ To view changes between versions use the 'Diff' function in the Git window - the
 <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7>
 <http://fivethirtyeight.com/features/science-isnt-broken/#part1>
 <http://www.nytimes.com/2011/07/08/health/research/08genes.html?_r=0>
+<http://science.sciencemag.org/content/354/6308/142>
+Reproducibility syllabus - <https://hackernoon.com/barba-group-reproducibility-syllabus-e3757ee635cf#.l399m11j4>
+Reproducible research is still a challenge - <https://ropensci.org/blog/2014/06/09/reproducibility/>
+
 
 **Data and code archiving**
-<https://eip.ceh.ac.uk/>
 <http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002295>
 <http://www.sciencedirect.com/science/article/pii/S0169534715002906>
 
-**Project organisation and workflows**
+**Document your workflow**
 
+**Document your environment** 
+Packrat intro - <https://rstudio.github.io/packrat/>
+Packrat with RStudio - <https://rstudio.github.io/packrat/rstudio.html>
 
-**Markdown and literate programming**
-<https://www.latex-project.org/>
-<https://www.statistik.lmu.de/~leisch/Sweave/>
-<http://yihui.name/knitr/>
+**Document your code**
+Latex - <https://www.latex-project.org/>
+Sweave - <https://www.statistik.lmu.de/~leisch/Sweave/>
+Knitr - <http://yihui.name/knitr/>
 
 **Version control**
+git - <https://git-scm.com/>
+Github - <https://github.com/>
+Subversion - <https://subversion.apache.org/>
 
-**Government requirements**
-<https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf>
+**CEH-specific resources**
+MacPherson review - <https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf>
+EIDC - <http://eidc.ceh.ac.uk/>
 
 
 
