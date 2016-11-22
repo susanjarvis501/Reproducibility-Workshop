@@ -8,6 +8,10 @@ output:
   pdf_document: default
 ---
 
+<style type="text/css">	
+blockquote{ /* Normal  */ font-size: 16px;}		
+</style>
+
 # Reproducibility in R workshop handbook
 
 
@@ -38,11 +42,11 @@ For this exercise we will use data on fish elemental concentrations <https://doi
 
 > **Data formatting and tidy data:**  
 > Datasets used for analysis should fulfill the following requirements:
-  
+>  
 > * Each variable is a column  
 > * Each observation is a row  
 > * Each type of observational unit is a table  
-
+>
 > Data which meets these requirements is know as 'tidy data'. There is a [paper](http://vita.had.co.nz/papers/tidy-data.pdf) describing the logic behind this way of presenting data and also R packages to help achieve this (e.g. [tidyr](https://cran.r-project.org/web/packages/tidyr/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)) with a useful [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) therefore the process of getting to a tidy dataset will not be covered in further detail here.
 
 
@@ -126,7 +130,7 @@ fish_clean <- droplevels(fish_analysis[-emptyrows,]) #droplevels removes factor 
 
 
 > For this example we will not conduct any other processing of data, such as transformations or linking or joining to other datasets. However, often an analytical workflow will require further steps to create the data required for analysis. Several things should be considered:
-
+>
 > * Use a single environment to link all datasets where possible. It can be tempting to do initial exploration in e.g. SAS, but this leads to an additional data transfer step between programs that is difficult to make completely reproducible. SQL can easily be used within R with packages such as `sqldf` and external databases e.g. Oracle, Access can be interfaced with via `RODBC`.
 > * When spatial processing is required before analysis there are possibilities to do this in R (see the spatial data workshop today!), but where processing time is an issue it may be unavoidable to use an external program such as ArcGIS. Reproducibility in this step can be improved by using Python scripting to conduct the spatial analysis, potentially with an R-to-Python interface such as the `R2Python` package which allows Python to be called from R.
 > * If your analysis involves running an external program or model written in a language which cannot directly interface with R (e.g. a lower level language such as C++ or Fortran) it is possible to call these programs using a Dynamic Load Library on Windows (`dynload()` function in base R) 
