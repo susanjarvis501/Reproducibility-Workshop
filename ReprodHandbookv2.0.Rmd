@@ -8,10 +8,6 @@ output:
   pdf_document: default
 ---
 
-<style type="text/css">	
-blockquote{ /* Normal  */ font-size: 16px;}		
-</style>
-
 # Reproducibility in R workshop handbook
 
 
@@ -42,11 +38,11 @@ For this exercise we will use data on fish elemental concentrations <https://doi
 
 > **Data formatting and tidy data:**  
 > Datasets used for analysis should fulfill the following requirements:
->  
+  
 > * Each variable is a column  
 > * Each observation is a row  
 > * Each type of observational unit is a table  
->
+
 > Data which meets these requirements is know as 'tidy data'. There is a [paper](http://vita.had.co.nz/papers/tidy-data.pdf) describing the logic behind this way of presenting data and also R packages to help achieve this (e.g. [tidyr](https://cran.r-project.org/web/packages/tidyr/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)) with a useful [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) therefore the process of getting to a tidy dataset will not be covered in further detail here.
 
 
@@ -130,7 +126,7 @@ fish_clean <- droplevels(fish_analysis[-emptyrows,]) #droplevels removes factor 
 
 
 > For this example we will not conduct any other processing of data, such as transformations or linking or joining to other datasets. However, often an analytical workflow will require further steps to create the data required for analysis. Several things should be considered:
->
+
 > * Use a single environment to link all datasets where possible. It can be tempting to do initial exploration in e.g. SAS, but this leads to an additional data transfer step between programs that is difficult to make completely reproducible. SQL can easily be used within R with packages such as `sqldf` and external databases e.g. Oracle, Access can be interfaced with via `RODBC`.
 > * When spatial processing is required before analysis there are possibilities to do this in R (see the spatial data workshop today!), but where processing time is an issue it may be unavoidable to use an external program such as ArcGIS. Reproducibility in this step can be improved by using Python scripting to conduct the spatial analysis, potentially with an R-to-Python interface such as the `R2Python` package which allows Python to be called from R.
 > * If your analysis involves running an external program or model written in a language which cannot directly interface with R (e.g. a lower level language such as C++ or Fortran) it is possible to call these programs using a Dynamic Load Library on Windows (`dynload()` function in base R) 
@@ -284,7 +280,7 @@ The line of code is preceeded by ` ```{r setup, include=FALSE}` and followed by 
 
 **Tasks**
 
-- Edit the template Markdown document to present a summary of the fish data analysis with explanatory text in pdf format, refer to the [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for different ways to format text
+- Edit the template Markdown document to present a summary of the fish data analysis with explanatory text in pdf format, refer to the [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for different ways to format text  
 
 
 *Note on LaTeX -  it is possible to integrate the functions provided by the knitr package with LaTeX using .Rnw files. LaTeX provides a much more complex and customised document creation language and is therefore useful when you are creating large documents (such as a thesis!), or have specific formatting needs. However the trade off is a much steeper learning curve than the Markdown language. Useful guides which assume some existing knowledge of LaTeX are available such as [these minimal examples](http://yihui.name/knitr/demo/minimal/), and this [short guide](http://kbroman.org/knitr_knutshell/pages/latex.html). If you want to learn LaTeX there are some useful online guides to get going e.g. [this one](http://www.docs.is.ed.ac.uk/skills/documents/3722/3722-2014.pdf).*
@@ -379,36 +375,37 @@ Below are some links to documents or resources I found useful in preparing this 
 Towards a more reproducible ecology - <http://www.ecography.org/blog/towards-more-reproducible-ecology>  
 MOOC on reproducible research - <https://www.coursera.org/learn/reproducible-research?siteID=TnL5HPStwNw-SboO614vD2A6qjhmEi7lLw&utm_content=10&utm_medium=partners&utm_source=linkshare&utm_campaign=TnL5HPStwNw>  
 Retraction Watch - <http://retractionwatch.com/>  
-<http://onlinelibrary.wiley.com/doi/10.1111/ecog.02493/pdf>  
+Towards a more reproducible ecology - <http://onlinelibrary.wiley.com/doi/10.1111/ecog.02493/pdf>  
 King Lab reproducibility policy - <http://kinglab.eeb.lsa.umich.edu/lab/reproducibility_policy>  
-<http://www.cell.com/trends/ecology-evolution/fulltext/S0169-5347(16)30095-7>  
-<http://science.sciencemag.org/content/334/6060/1226>  
-<http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285>  
+Transparency in ecology and evolution - <http://www.cell.com/trends/ecology-evolution/fulltext/S0169-5347(16)30095-7>  
+Reproducible research in computational Science - <http://science.sciencemag.org/content/334/6060/1226>  
+Ten simple rules for reproducible computational research - <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285>  
 Effort to reproduce key ecological findings - <https://github.com/opetchey/RREEBES>  
-<http://www.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12230/abstract>  
-<https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7>  
+Reproducibility of pyrosequencing data for biodiversity assessment in complex communities - <http://www.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12230/abstract>  
+Five selfish reasons for work reproducibly - <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7>  
 Science/reproducibility is hard - <http://fivethirtyeight.com/features/science-isnt-broken/#part1>  
-<http://www.nytimes.com/2011/07/08/health/research/08genes.html?_r=0>  
-<http://science.sciencemag.org/content/354/6308/142>  
+How bright promise in cancer testing fell apart - <http://www.nytimes.com/2011/07/08/health/research/08genes.html?_r=0>  
+The hard road to reproducibility - <http://science.sciencemag.org/content/354/6308/142>  
 Reproducibility syllabus - <https://hackernoon.com/barba-group-reproducibility-syllabus-e3757ee635cf#.l399m11j4>  
 Reproducible research is still a challenge - <https://ropensci.org/blog/2014/06/09/reproducibility/>  
 Data Management in R course - <https://github.com/susanjarvis501/Data-Management-in-R>  
 
 
 **Data and code archiving**  
-<http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002295>  
-<http://www.sciencedirect.com/science/article/pii/S0169534715002906>  
+Public data archiving in ecology and evolution: how well are we doing? - <http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002295>  
+Elevating the status of code in ecology - <http://www.sciencedirect.com/science/article/pii/S0169534715002906>  
 
 **Document your workflow**  
-Taverna - 
-Remake - 
-Simple workflows in R - 
+Taverna - <http://www.taverna.org.uk/>  
+Remake - <https://github.com/richfitz/remake>  
+Simple workflows in R? - <http://stackoverflow.com/questions/1429907/workflow-for-statistical-analysis-and-report-writing>  
 
 **Document your environment**   
 We've not dicussed environment documentation (step 6 of our reproducibility steps) in detail. The key resource to help you do this in R is the `packrat` package. `packrat` enables you to record the versions of all the R packages you are using for an analysis, allows you to manage different versions of packages e.g. when you have two analyses that are working with different versions, and has an add-on to RStudio to provide an easy visual interface. For those who are working with analyses where you truly need a virtual environment (e.g. working with applications or highly complex workflows) then Docker is a useful tool heavily used by the Application Development team which provides a lightweight virtual environment.   
 Packrat intro - <https://rstudio.github.io/packrat/>  
 Packrat with RStudio - <https://rstudio.github.io/packrat/rstudio.html>  
-Docker -  
+Docker - <https://www.docker.com/> 
+Docker for bioinformatics - <http://www.molecularecologist.com/2016/05/docker-making-our-bioinformatics-easier-and-more-reproducible/>  
 
 **Document your code**  
 Latex - <https://www.latex-project.org/>  
